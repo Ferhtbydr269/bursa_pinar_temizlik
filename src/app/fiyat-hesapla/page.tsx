@@ -283,14 +283,14 @@ export default function FiyatHesaplaPage() {
 
                     <div className="flex flex-wrap justify-center gap-4">
                       <a
-                        href="tel:+905348463469"
+                        href="tel:+905348463269"
                         className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-lg hover:bg-primary-700 transition-colors shadow-lg"
                       >
                         <Phone className="w-5 h-5" />
                         Kesin Fiyat İçin Arayın
                       </a>
                       <a
-                        href="https://wa.me/905348463469"
+                        href="https://wa.me/905348463269"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white rounded-xl font-bold text-lg hover:bg-green-700 transition-colors shadow-lg"

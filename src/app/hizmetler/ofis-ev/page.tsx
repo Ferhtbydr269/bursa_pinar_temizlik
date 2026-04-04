@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Ofis & Ev Temizliği",
   description:
-    "Bursa'da profesyonel ofis ve ev temizliği. Anti-alerjik ürünler, derin temizlik, periyodik bakım. 0534 846 34 69",
+    "Bursa'da profesyonel ofis ve ev temizliği. Anti-alerjik ürünler, derin temizlik, periyodik bakım. 0534 846 32 69",
 };
 
 const data: ServicePageData = {

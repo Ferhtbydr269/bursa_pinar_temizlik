@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Dış Cephe & Kompozit Temizliği",
   description:
-    "Bursa'da profesyonel dış cephe ve kompozit panel temizliği. 20-45m sepetli vinç, nano-teknolojik cam koruyucu ve IRATA sertifikalı ekip. 0534 846 34 69",
+    "Bursa'da profesyonel dış cephe ve kompozit panel temizliği. 20-45m sepetli vinç, nano-teknolojik cam koruyucu ve IRATA sertifikalı ekip. 0534 846 32 69",
 };
 
 const data: ServicePageData = {

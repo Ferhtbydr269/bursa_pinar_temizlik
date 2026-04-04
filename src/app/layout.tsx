@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Bursa Pınar Temizlik",
   },
   description:
-    "Bursa'da dış cephe, fabrika, inşaat sonrası, cami, ofis, ev ve villa temizliği. 10+ yıllık deneyim, endüstriyel ekipman ve profesyonel ekiple hizmetinizdeyiz. 0534 846 34 69",
+    "Bursa'da dış cephe, fabrika, inşaat sonrası, cami, ofis, ev ve villa temizliği. 10+ yıllık deneyim, endüstriyel ekipman ve profesyonel ekiple hizmetinizdeyiz. 0534 846 32 69",
   keywords: [
     "Bursa temizlik",
     "dış cephe temizliği",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bursa Pınar Temizlik | Profesyonel Temizlik Hizmetleri",
     description:
-      "Bursa'da profesyonel bireysel ve kurumsal temizlik çözümleri. 0534 846 34 69",
+      "Bursa'da profesyonel bireysel ve kurumsal temizlik çözümleri. 0534 846 32 69",
     type: "website",
     locale: "tr_TR",
   },

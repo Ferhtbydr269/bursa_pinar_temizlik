@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Cami Temizliği",
   description:
-    "Bursa'da profesyonel cami temizliği. Halı derin vakumlama, gül suyu bazlı dezenfeksiyon, hassas yüzey bakımı. 0534 846 34 69",
+    "Bursa'da profesyonel cami temizliği. Halı derin vakumlama, gül suyu bazlı dezenfeksiyon, hassas yüzey bakımı. 0534 846 32 69",
 };
 
 const data: ServicePageData = {

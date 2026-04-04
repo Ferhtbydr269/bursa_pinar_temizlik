@@ -100,11 +100,11 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
               Bursa Pınar Temizlik olarak tüm temizlik ihtiyaçlarınız için yanınızdayız.
             </p>
             <a
-              href="tel:+905348463469"
+              href="tel:+905348463269"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-bold hover:bg-primary-700 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              0534 846 34 69
+              0534 846 32 69
             </a>
           </motion.div>
         </div>

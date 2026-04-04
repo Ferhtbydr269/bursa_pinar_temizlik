@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Fabrika & Endüstriyel Temizlik",
   description:
-    "Bursa'da fabrika ve endüstriyel alan temizliği. Binicili scrubber makineler, shift-based planlama, epoksi zemin temizliği. 0534 846 34 69",
+    "Bursa'da fabrika ve endüstriyel alan temizliği. Binicili scrubber makineler, shift-based planlama, epoksi zemin temizliği. 0534 846 32 69",
 };
 
 const data: ServicePageData = {

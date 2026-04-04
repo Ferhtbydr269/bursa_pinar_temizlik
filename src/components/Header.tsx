@@ -126,11 +126,11 @@ export default function Header() {
 
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="tel:+905348463469"
+              href="tel:+905348463269"
               className="flex items-center gap-2 px-5 py-2.5 bg-primary-600 text-white rounded-full text-sm font-semibold hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/25"
             >
               <Phone className="w-4 h-4" />
-              0534 846 34 69
+              0534 846 32 69
             </a>
           </div>
 
@@ -179,11 +179,11 @@ export default function Header() {
               ))}
               <div className="pt-4">
                 <a
-                  href="tel:+905348463469"
+                  href="tel:+905348463269"
                   className="flex items-center justify-center gap-2 px-5 py-3 bg-primary-600 text-white rounded-xl font-semibold"
                 >
                   <Phone className="w-4 h-4" />
-                  0534 846 34 69
+                  0534 846 32 69
                 </a>
               </div>
             </div>

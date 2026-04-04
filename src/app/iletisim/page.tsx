@@ -16,15 +16,15 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Telefon",
-    value: "0534 846 34 69",
-    href: "tel:+905348463469",
+    value: "0534 846 32 69",
+    href: "tel:+905348463269",
     color: "bg-blue-100 text-blue-600",
   },
   {
     icon: MessageSquare,
     title: "WhatsApp",
-    value: "0534 846 34 69",
-    href: "https://wa.me/905348463469",
+    value: "0534 846 32 69",
+    href: "https://wa.me/905348463269",
     color: "bg-green-100 text-green-600",
   },
   {

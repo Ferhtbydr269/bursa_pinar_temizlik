@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "Villa Temizliği",
   description:
-    "Bursa'da lüks villa temizliği. Geniş metrekarelere özel ekip, bahçe, havuz kenarı ve dış mekan dahil kapsamlı hizmet. 0534 846 34 69",
+    "Bursa'da lüks villa temizliği. Geniş metrekarelere özel ekip, bahçe, havuz kenarı ve dış mekan dahil kapsamlı hizmet. 0534 846 32 69",
 };
 
 const data: ServicePageData = {

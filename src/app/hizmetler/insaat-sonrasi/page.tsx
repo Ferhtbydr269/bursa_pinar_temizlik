@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/components/ServicePageLayout";
 export const metadata: Metadata = {
   title: "İnşaat Sonrası Temizlik",
   description:
-    "Bursa'da inşaat sonrası temizlik hizmeti. 3 aşamalı metodoloji, buhar jeneratörlü leke çıkarma, sıfır hata garantisi. 0534 846 34 69",
+    "Bursa'da inşaat sonrası temizlik hizmeti. 3 aşamalı metodoloji, buhar jeneratörlü leke çıkarma, sıfır hata garantisi. 0534 846 32 69",
 };
 
 const data: ServicePageData = {

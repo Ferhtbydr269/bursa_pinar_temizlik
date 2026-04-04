@@ -260,7 +260,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="tel:+905348463469"
+                href="tel:+905348463269"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-lg border border-white/20 hover:bg-white/20 transition-all"
               >
                 <Phone className="w-5 h-5" />
