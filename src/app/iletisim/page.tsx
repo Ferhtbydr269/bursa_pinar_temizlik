@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useForm, ValidationError } from "@formspree/react";
 import {
   Phone,
   Mail,
@@ -50,40 +50,8 @@ const contactInfo = [
   },
 ];
 
-const FORMSPREE_ID = "https://formspree.io/f/xeeppqan"; // formspree.io'dan alacağın ID buraya
-
 export default function IletisimPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-
-      if (res.ok) {
-        setSubmitted(true);
-        form.reset();
-      } else {
-        setError("Mesaj gönderilemedi. Lütfen tekrar deneyin.");
-      }
-    } catch {
-      setError("Bağlantı hatası. Lütfen tekrar deneyin.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [state, handleSubmit] = useForm("xeeppqan");
 
   return (
     <>
@@ -153,7 +121,7 @@ export default function IletisimPage() {
               className="lg:col-span-3"
             >
               <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 sm:p-10">
-                {submitted ? (
+                {state.succeeded ? (
                   <div className="text-center py-12">
                     <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
                       <CheckCircle className="w-10 h-10 text-green-600" />
@@ -164,12 +132,6 @@ export default function IletisimPage() {
                     <p className="text-gray-600 mb-6">
                       En kısa sürede size dönüş yapacağız.
                     </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700 transition-colors"
-                    >
-                      Yeni Mesaj Gönder
-                    </button>
                   </div>
                 ) : (
                   <>
@@ -189,6 +151,7 @@ export default function IletisimPage() {
                             className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors"
                             placeholder="Adınız Soyadınız"
                           />
+                          <ValidationError field="ad_soyad" errors={state.errors} className="text-red-500 text-sm mt-1" />
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -201,6 +164,7 @@ export default function IletisimPage() {
                             className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors"
                             placeholder="05XX XXX XX XX"
                           />
+                          <ValidationError field="telefon" errors={state.errors} className="text-red-500 text-sm mt-1" />
                         </div>
                       </div>
                       <div>
@@ -213,6 +177,7 @@ export default function IletisimPage() {
                           className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors"
                           placeholder="ornek@email.com"
                         />
+                        <ValidationError field="email" errors={state.errors} className="text-red-500 text-sm mt-1" />
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -240,17 +205,16 @@ export default function IletisimPage() {
                           className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors resize-none"
                           placeholder="Temizlik ihtiyacınızı detaylı anlatın..."
                         />
+                        <ValidationError field="mesaj" errors={state.errors} className="text-red-500 text-sm mt-1" />
                       </div>
-                      {error && (
-                        <p className="text-red-600 text-sm font-medium">{error}</p>
-                      )}
+                      <ValidationError errors={state.errors} className="text-red-600 text-sm font-medium" />
                       <button
                         type="submit"
-                        disabled={loading}
+                        disabled={state.submitting}
                         className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-lg hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/25 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         <Send className="w-5 h-5" />
-                        {loading ? "Gönderiliyor..." : "Mesaj Gönder"}
+                        {state.submitting ? "Gönderiliyor..." : "Mesaj Gönder"}
                       </button>
                     </form>
                   </>
