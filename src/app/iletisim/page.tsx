@@ -50,12 +50,39 @@ const contactInfo = [
   },
 ];
 
+const FORMSPREE_ID = "YOUR_FORM_ID"; // formspree.io'dan alacağın ID buraya
+
 export default function IletisimPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setError("Mesaj gönderilemedi. Lütfen tekrar deneyin.");
+      }
+    } catch {
+      setError("Bağlantı hatası. Lütfen tekrar deneyin.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -157,6 +184,7 @@ export default function IletisimPage() {
                           </label>
                           <input
                             type="text"
+                            name="ad_soyad"
                             required
                             className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors"
                             placeholder="Adınız Soyadınız"
@@ -168,6 +196,7 @@ export default function IletisimPage() {
                           </label>
                           <input
                             type="tel"
+                            name="telefon"
                             required
                             className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors"
                             placeholder="05XX XXX XX XX"
@@ -180,6 +209,7 @@ export default function IletisimPage() {
                         </label>
                         <input
                           type="email"
+                          name="email"
                           className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors"
                           placeholder="ornek@email.com"
                         />
@@ -188,7 +218,7 @@ export default function IletisimPage() {
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
                           Hizmet Türü
                         </label>
-                        <select className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors bg-white">
+                        <select name="hizmet_turu" className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors bg-white">
                           <option value="">Seçiniz</option>
                           <option>Dış Cephe Temizliği</option>
                           <option>Fabrika Temizliği</option>
@@ -204,18 +234,23 @@ export default function IletisimPage() {
                           Mesajınız
                         </label>
                         <textarea
+                          name="mesaj"
                           rows={5}
                           required
                           className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary-500 focus:ring-0 outline-none transition-colors resize-none"
                           placeholder="Temizlik ihtiyacınızı detaylı anlatın..."
                         />
                       </div>
+                      {error && (
+                        <p className="text-red-600 text-sm font-medium">{error}</p>
+                      )}
                       <button
                         type="submit"
-                        className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-lg hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/25"
+                        disabled={loading}
+                        className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-lg hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/25 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         <Send className="w-5 h-5" />
-                        Mesaj Gönder
+                        {loading ? "Gönderiliyor..." : "Mesaj Gönder"}
                       </button>
                     </form>
                   </>
