@@ -50,7 +50,7 @@ const contactInfo = [
   },
 ];
 
-const FORMSPREE_ID = "YOUR_FORM_ID"; // formspree.io'dan alacağın ID buraya
+const FORMSPREE_ID = "https://formspree.io/f/xeeppqan"; // formspree.io'dan alacağın ID buraya
 
 export default function IletisimPage() {
   const [submitted, setSubmitted] = useState(false);
