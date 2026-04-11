@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useForm, ValidationError } from "@formspree/react";
+import { trackConversion } from "@/lib/gtag";
 import {
   Phone,
   Mail,
@@ -53,6 +55,12 @@ const contactInfo = [
 export default function IletisimPage() {
   const [state, handleSubmit] = useForm("xeeppqan");
 
+  useEffect(() => {
+    if (state.succeeded) {
+      trackConversion();
+    }
+  }, [state.succeeded]);
+
   return (
     <>
       <section className="pt-32 pb-8 hero-gradient">
@@ -79,6 +87,11 @@ export default function IletisimPage() {
                   href={info.href}
                   target={info.href.startsWith("http") ? "_blank" : undefined}
                   rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  onClick={() => {
+                    if (info.href.startsWith("tel:") || info.href.startsWith("https://wa.me")) {
+                      trackConversion();
+                    }
+                  }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}

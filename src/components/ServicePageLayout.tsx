@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, Phone } from "lucide-react";
+import { trackConversion } from "@/lib/gtag";
 import {
   Droplets, Shield, Zap, Eye, Thermometer, Calendar,
   Factory, Clock, Wrench, BarChart3,
@@ -261,6 +262,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
               </Link>
               <a
                 href="tel:+905348463269"
+                onClick={() => trackConversion()}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-lg border border-white/20 hover:bg-white/20 transition-all"
               >
                 <Phone className="w-5 h-5" />

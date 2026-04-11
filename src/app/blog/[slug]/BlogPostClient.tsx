@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Clock, Tag, Phone } from "lucide-react";
+import { trackConversion } from "@/lib/gtag";
 
 interface BlogPost {
   title: string;
@@ -101,6 +102,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
             </p>
             <a
               href="tel:+905348463269"
+              onClick={() => trackConversion()}
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-bold hover:bg-primary-700 transition-colors"
             >
               <Phone className="w-4 h-4" />

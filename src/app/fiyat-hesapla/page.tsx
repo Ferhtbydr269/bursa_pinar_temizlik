@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackConversion } from "@/lib/gtag";
 import {
   Calculator,
   Building2,
@@ -284,6 +285,7 @@ export default function FiyatHesaplaPage() {
                     <div className="flex flex-wrap justify-center gap-4">
                       <a
                         href="tel:+905348463269"
+                        onClick={() => trackConversion()}
                         className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-lg hover:bg-primary-700 transition-colors shadow-lg"
                       >
                         <Phone className="w-5 h-5" />
@@ -293,6 +295,7 @@ export default function FiyatHesaplaPage() {
                         href="https://wa.me/905348463269"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackConversion()}
                         className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white rounded-xl font-bold text-lg hover:bg-green-700 transition-colors shadow-lg"
                       >
                         WhatsApp&apos;tan Yazın

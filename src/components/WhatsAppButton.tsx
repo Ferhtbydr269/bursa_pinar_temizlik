@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { trackConversion } from "@/lib/gtag";
 
 export default function WhatsAppButton() {
   return (
@@ -9,6 +10,7 @@ export default function WhatsAppButton() {
       href="https://wa.me/905348463269?text=Merhaba%2C%20temizlik%20hizmeti%20hakkında%20bilgi%20almak%20istiyorum."
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackConversion()}
       className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/40 hover:bg-green-600 transition-colors animate-pulse-glow"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}

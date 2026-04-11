@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { trackConversion } from "@/lib/gtag";
 
 const services = [
   { name: "Dış Cephe Temizliği", href: "/hizmetler/dis-cephe" },
@@ -127,6 +128,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href="tel:+905348463269"
+              onClick={() => trackConversion()}
               className="flex items-center gap-2 px-5 py-2.5 bg-primary-600 text-white rounded-full text-sm font-semibold hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/25"
             >
               <Phone className="w-4 h-4" />
@@ -180,6 +182,7 @@ export default function Header() {
               <div className="pt-4">
                 <a
                   href="tel:+905348463269"
+                  onClick={() => trackConversion()}
                   className="flex items-center justify-center gap-2 px-5 py-3 bg-primary-600 text-white rounded-xl font-semibold"
                 >
                   <Phone className="w-4 h-4" />
