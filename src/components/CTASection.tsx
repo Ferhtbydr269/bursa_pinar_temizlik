@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Phone, Calculator, ArrowRight } from "lucide-react";
+import { Phone, MessageSquare, ArrowRight } from "lucide-react";
 import { trackConversion } from "@/lib/gtag";
 
 export default function CTASection() {
@@ -25,17 +25,17 @@ export default function CTASection() {
             <span className="text-primary-300">Hemen Teklif Alın</span>
           </h2>
           <p className="text-lg text-primary-100/80 mb-10 max-w-xl mx-auto">
-            AI tabanlı fiyat tahmincimiz ile anında fiyat teklifi alın veya
+            Ücretsiz keşif ve fiyat teklifi için hemen bize ulaşın veya
             doğrudan bizi arayın.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="/fiyat-hesapla"
+              href="/teklif-al"
               className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-900 rounded-full font-bold text-lg hover:bg-primary-50 transition-all shadow-2xl"
             >
-              <Calculator className="w-5 h-5" />
-              AI Fiyat Hesapla
+              <MessageSquare className="w-5 h-5" />
+              Ücretsiz Teklif Al
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a

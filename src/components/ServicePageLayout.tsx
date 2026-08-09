@@ -254,10 +254,10 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/fiyat-hesapla"
+                href="/teklif-al"
                 className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-900 rounded-full font-bold text-lg hover:bg-primary-50 transition-all shadow-2xl"
               >
-                Fiyat Hesapla
+                Ücretsiz Teklif Al
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a

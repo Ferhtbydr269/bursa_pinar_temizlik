@@ -153,10 +153,10 @@ export default function HeroSection() {
             className="flex flex-wrap gap-4 mb-16"
           >
             <Link
-              href="/fiyat-hesapla"
+              href="/teklif-al"
               className="group flex items-center gap-2 px-8 py-4 bg-white text-primary-900 rounded-full font-bold text-lg hover:bg-primary-50 transition-all shadow-2xl"
             >
-              Ücretsiz Fiyat Al
+              Ücretsiz Teklif Al
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link

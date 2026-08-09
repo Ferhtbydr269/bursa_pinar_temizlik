@@ -19,7 +19,7 @@ const services = [
 const navLinks = [
   { name: "Ana Sayfa", href: "/" },
   { name: "Hakkımızda", href: "/hakkimizda" },
-  { name: "Fiyat Hesapla", href: "/fiyat-hesapla" },
+  { name: "Teklif Al", href: "/teklif-al" },
   { name: "Blog", href: "/blog" },
   { name: "İletişim", href: "/iletisim" },
 ];
