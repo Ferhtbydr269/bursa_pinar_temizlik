@@ -69,7 +69,7 @@ const guarantees = [
   "Sigortalı ve uzman personel",
 ];
 
-export default function TeklifAlPage() {
+export default function FiyatHesaplaPage() {
   return (
     <>
       {/* Hero */}
