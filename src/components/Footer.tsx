@@ -43,6 +43,7 @@ export default function Footer() {
             <div className="flex gap-3">
               <a
                 href="https://instagram.com"
+                aria-label="Bursa Pınar Temizlik Instagram sayfası"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-800 flex items-center justify-center hover:bg-primary-600 transition-colors"
@@ -51,6 +52,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://facebook.com"
+                aria-label="Bursa Pınar Temizlik Facebook sayfası"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-800 flex items-center justify-center hover:bg-primary-600 transition-colors"

@@ -42,10 +42,8 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-40 w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          {/* initial={false}: başlık (LCP elemanı) JS beklemeden görünür olsun */}
+          <motion.div initial={false}>
             <Link
               href="/blog"
               className="inline-flex items-center gap-1 text-primary-300 text-sm mb-4 hover:text-white transition-colors"
@@ -75,12 +73,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
 
       <article className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="prose prose-lg max-w-none"
-          >
+          <motion.div initial={false} className="prose prose-lg max-w-none">
             {post.content.map((paragraph, i) => (
               <p key={i} className="text-gray-700 leading-relaxed mb-6">
                 {renderParagraph(paragraph)}

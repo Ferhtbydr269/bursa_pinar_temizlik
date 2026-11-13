@@ -6,15 +6,21 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/next";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, SITE_NAME, OG_IMAGE, localBusinessSchema, websiteSchema } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  // latin-ext: ı, ş, ğ, İ gibi Türkçe harfler bu alt kümede. Yalnızca "latin"
+  // olunca bu harfler kelime ortasında yedek fonta (Arial) düşüyordu.
+  subsets: ["latin", "latin-ext"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  // Sitede mono font kullanılmıyor; her sayfada boşuna ön yüklenmesin.
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -36,13 +42,27 @@ export const metadata: Metadata = {
     "profesyonel temizlik",
     "Bursa Pınar Temizlik",
   ],
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
   openGraph: {
     title: "Bursa Pınar Temizlik | Profesyonel Temizlik Hizmetleri",
     description:
       "Bursa'da profesyonel bireysel ve kurumsal temizlik çözümleri. 0534 846 32 69",
     type: "website",
     locale: "tr_TR",
+    siteName: SITE_NAME,
+    images: [OG_IMAGE],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: [OG_IMAGE.url],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  formatDetection: { telephone: true },
 };
 
 export default function RootLayout({
@@ -91,6 +111,7 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

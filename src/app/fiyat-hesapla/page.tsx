@@ -75,7 +75,7 @@ export default function FiyatHesaplaPage() {
       {/* Hero */}
       <section className="pt-32 pb-12 hero-gradient">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div initial={false}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-primary-200 text-sm font-medium mb-6">
               <Sparkles className="w-4 h-4" />
               Ücretsiz Keşif & Teklif

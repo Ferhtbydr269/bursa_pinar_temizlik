@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
+import { openGraph } from "@/lib/site";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import type { ServicePageData } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Fabrika & Endüstriyel Temizlik",
+  title: "Bursa Fabrika & Endüstriyel Temizlik",
   description:
     "Bursa'da fabrika ve endüstriyel alan temizliği. Binicili scrubber makineler, shift-based planlama, epoksi zemin temizliği. 0534 846 32 69",
+  alternates: { canonical: "/hizmetler/fabrika" },
+  openGraph: openGraph({ url: "/hizmetler/fabrika" }),
 };
 
 const data: ServicePageData = {
+  slug: "fabrika",
   title: "Fabrika & Endüstriyel Temizlik",
   subtitle: "Kesintisiz Üretim, Maksimum Hijyen",
   description:
@@ -53,6 +57,13 @@ const data: ServicePageData = {
     "Buhar jeneratörleri (170°C)",
     "HEPA filtreli toz toplama üniteleri",
     "Endüstriyel dezenfeksiyon sislemeleri (ULV cihazları)",
+  ],
+  faqs: [
+    { q: "Fabrika temizliği üretimi durdurur mu?", a: "Hayır. Temizliği üretim vardiyalarına göre (shift-based) planlıyoruz; üretim hattını durdurmadan gece, hafta sonu veya mola saatlerinde çalışıyoruz." },
+    { q: "Epoksi zeminler nasıl temizleniyor?", a: "Epoksi ve polyester zeminlerde kaplamaya zarar vermeyen pH nötr endüstriyel temizleyiciler ile binicili zemin yıkama makineleri (scrubber) kullanılır. Makine zemini aynı anda yıkayıp kurutur." },
+    { q: "Gıda üretim tesislerinde temizlik yapıyor musunuz?", a: "Evet. Gıda tesislerinde HACCP ve ISO 22000 uyumlu temizlik ve dezenfeksiyon protokolleri uyguluyoruz." },
+    { q: "Temizlik sonrası raporlama yapılıyor mu?", a: "Her uygulama sonrası dijital temizlik formu ile öncesi ve sonrası fotoğraflar sunuluyor; periyodik müşterilere aylık performans raporu hazırlanıyor." },
+    { q: "Fabrika temizliği fiyatı nasıl hesaplanır?", a: "Tesis metrekaresi, zemin türü, kirlilik kaynağı, tavan yüksekliği ve temizlik sıklığı birlikte değerlendirilir. Tesis analizi için ücretsiz keşif yapıyoruz." },
   ],
 };
 

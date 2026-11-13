@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
+import { openGraph } from "@/lib/site";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import type { ServicePageData } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Ofis & Ev Temizliği",
+  title: "Bursa Ofis & Ev Temizliği",
   description:
     "Bursa'da profesyonel ofis ve ev temizliği. Anti-alerjik ürünler, derin temizlik, periyodik bakım. 0534 846 32 69",
+  alternates: { canonical: "/hizmetler/ofis-ev" },
+  openGraph: openGraph({ url: "/hizmetler/ofis-ev" }),
 };
 
 const data: ServicePageData = {
+  slug: "ofis-ev",
   title: "Ofis & Ev Temizliği",
   subtitle: "Yaşam Alanlarınızda Nefes Alın",
   description:
@@ -53,6 +57,13 @@ const data: ServicePageData = {
     "Mikro fiber temizlik setleri",
     "ULV dezenfeksiyon cihazı",
     "Teleskopik tavan ve duvar temizleme araçları",
+  ],
+  faqs: [
+    { q: "Ev temizliğine neler dahil?", a: "Salon, yatak odaları, mutfak ve banyo için oda bazlı temizlik protokolü uygulanır. Derin temizlik paketinde halı yıkama, koltuk temizliği, perde ve stor yıkama da yer alır." },
+    { q: "Alerjisi olanlar için uygun mu?", a: "Evet. Alerji ve astım hastalarına uygun anti-alerjik, doğal bazlı ürünler ve alerjenleri filtreleyen HEPA filtreli vakum sistemleri kullanıyoruz." },
+    { q: "Periyodik ofis ve ev temizliği yapıyor musunuz?", a: "Evet. Haftalık, iki haftada bir veya aylık periyodik temizlik planları sunuyoruz." },
+    { q: "Temizlik personeli güvenilir mi?", a: "Personelimiz referans kontrolünden geçmiş, sigortalı ve profesyonel temizlik personelidir." },
+    { q: "Ofis ve ev temizliği fiyatı nasıl belirlenir?", a: "Alanın metrekaresi, oda sayısı, temizlik türü (standart ya da derin) ve sıklığına göre belirlenir. Telefon veya WhatsApp ile hızlıca teklif alabilirsiniz: 0534 846 32 69." },
   ],
 };
 

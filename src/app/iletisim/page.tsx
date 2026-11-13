@@ -65,7 +65,7 @@ export default function IletisimPage() {
     <>
       <section className="pt-32 pb-8 hero-gradient">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div initial={false}>
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
               Bize <span className="text-primary-300">Ulaşın</span>
             </h1>

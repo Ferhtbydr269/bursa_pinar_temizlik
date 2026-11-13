@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
+import { openGraph } from "@/lib/site";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import type { ServicePageData } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "İnşaat Sonrası Temizlik",
+  title: "Bursa İnşaat Sonrası Temizlik",
   description:
     "Bursa'da inşaat sonrası temizlik hizmeti. 3 aşamalı metodoloji, buhar jeneratörlü leke çıkarma, sıfır hata garantisi. 0534 846 32 69",
+  alternates: { canonical: "/hizmetler/insaat-sonrasi" },
+  openGraph: openGraph({ url: "/hizmetler/insaat-sonrasi" }),
 };
 
 const data: ServicePageData = {
+  slug: "insaat-sonrasi",
   title: "İnşaat Sonrası Temizlik",
   subtitle: "Sıfır Hata, Oturuma Hazır",
   description:
@@ -53,6 +57,13 @@ const data: ServicePageData = {
     "Teleskopik erişimli temizlik ekipmanları",
     "Mikro fiber detay temizlik setleri",
     "ULV dezenfeksiyon cihazları",
+  ],
+  faqs: [
+    { q: "İnşaat sonrası temizlik hangi aşamalardan oluşur?", a: "Üç aşamadan oluşur: inşaat artıkları ve tozun alındığı kaba temizlik, cam, zemin ve tüm yüzeylerin detaylı temizlendiği ince temizlik ve son olarak dezenfeksiyon ile kalite kontrol." },
+    { q: "Harç, boya ve silikon lekeleri çıkıyor mu?", a: "Evet. 170°C buhar jeneratörlü uçlar ve çözücüsüz özel formüllerle harç, silikon, boya ve yapıştırıcı kalıntıları yüzeye zarar vermeden çıkarılır." },
+    { q: "Parke, mermer ve granit zeminlere zarar verir mi?", a: "Hayır. Mermer ve granitte pH nötr bakım ürünleri, parke ve laminatta koruyucu temizlik ürünleri kullanılır; asidik veya aşındırıcı ürün kullanılmaz." },
+    { q: "Temizlik sonrası ev taşınmaya hazır mı teslim ediliyor?", a: "Evet. Her kat ve oda ayrı ayrı kontrol edilir, teslim öncesi final kontrol yapılır ve alan taşınmaya hazır şekilde anahtar teslim edilir." },
+    { q: "İnşaat sonrası temizlik fiyatı neye göre değişir?", a: "Fiyat; metrekare, oda sayısı, inşaat kalıntısının yoğunluğu (harç, alçı, boya) ve cam alanına göre değişir. Yerinde ücretsiz keşifle net fiyat veriyoruz." },
   ],
 };
 

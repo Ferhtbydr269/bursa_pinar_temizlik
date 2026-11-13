@@ -16,6 +16,7 @@ export default function WhatsAppButton() {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 2, type: "spring" }}
       title="WhatsApp ile iletişime geçin"
+      aria-label="WhatsApp ile iletişime geçin"
     >
       <MessageCircle className="w-8 h-8 text-white" />
     </motion.a>

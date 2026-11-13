@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
+import { openGraph } from "@/lib/site";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import type { ServicePageData } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Cami Temizliği",
+  title: "Bursa Cami Temizliği",
   description:
     "Bursa'da profesyonel cami temizliği. Halı derin vakumlama, gül suyu bazlı dezenfeksiyon, hassas yüzey bakımı. 0534 846 32 69",
+  alternates: { canonical: "/hizmetler/cami" },
+  openGraph: openGraph({ url: "/hizmetler/cami" }),
 };
 
 const data: ServicePageData = {
+  slug: "cami",
   title: "Cami Temizliği",
   subtitle: "Hassas Dokular ve Dezenfeksiyon",
   description:
@@ -52,6 +56,12 @@ const data: ServicePageData = {
     "İskele sistemleri (kubbe ve yüksek alan erişimi)",
     "Mikro fiber ve doğal bezler (hassas yüzeyler)",
     "Anti-statik toz alma ekipmanları",
+  ],
+  faqs: [
+    { q: "Cami temizliği ibadet saatlerini etkiler mi?", a: "Hayır. Çalışmayı ibadet saatleri dışında planlıyor, hassas eşyaları koruma altına alarak ibadete engel olmadan temizlik yapıyoruz." },
+    { q: "Cami halıları nasıl temizleniyor?", a: "Halılar yüksek vakum gücüyle derinlemesine vakumlanarak toz, akar ve alerjenlerden arındırılır; ardından doğal, gül suyu bazlı dezenfektan uygulanır." },
+    { q: "Kubbe, avize ve vitraylar da temizleniyor mu?", a: "Evet. Yüksek kubbe alanları ve avizeler güvenli erişim ekipmanlarıyla, vitray camlar ise özel solüsyonlarla temizlenir." },
+    { q: "Hangi temizlik ürünleri kullanılıyor?", a: "Anti-alerjik ve anti-bakteriyel ürünler, ahşap yüzeyler için pH nötr temizleyiciler ve hoş koku bırakan gül suyu bazlı doğal dezenfektan kullanılır." },
   ],
 };
 

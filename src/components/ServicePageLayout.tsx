@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, Phone } from "lucide-react";
 import { trackConversion } from "@/lib/gtag";
+import JsonLd from "@/components/JsonLd";
+import { absoluteUrl, breadcrumbSchema, faqSchema, BUSINESS_ID, SITE_NAME } from "@/lib/site";
 import {
   Droplets, Shield, Zap, Eye, Thermometer, Calendar,
   Factory, Clock, Wrench, BarChart3,
@@ -33,7 +35,13 @@ export interface ServiceStep {
   description: string;
 }
 
+export interface ServiceFaq {
+  q: string;
+  a: string;
+}
+
 export interface ServicePageData {
+  slug: string;
   title: string;
   subtitle: string;
   description: string;
@@ -43,11 +51,35 @@ export interface ServicePageData {
   gallery: string[];
   technicalDetails: string[];
   equipment: string[];
+  faqs: ServiceFaq[];
 }
 
 export default function ServicePageLayout({ data }: { data: ServicePageData }) {
+  const path = `/hizmetler/${data.slug}`;
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: data.title,
+    serviceType: data.title,
+    description: data.description,
+    url: absoluteUrl(path),
+    image: absoluteUrl(data.heroImage),
+    provider: { "@type": "LocalBusiness", "@id": BUSINESS_ID, name: SITE_NAME },
+    areaServed: { "@type": "City", name: "Bursa" },
+  };
+
   return (
     <>
+      <JsonLd
+        data={[
+          serviceSchema,
+          faqSchema(data.faqs),
+          breadcrumbSchema([
+            { name: "Ana Sayfa", path: "/" },
+            { name: data.title, path },
+          ]),
+        ]}
+      />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end overflow-hidden">
         <Image
@@ -60,11 +92,8 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-40 w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          {/* initial={false}: H1 (LCP elemanı) JS yüklenmeden görünür */}
+          <motion.div initial={false}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-600/80 text-white text-sm font-medium mb-4 backdrop-blur-sm">
               {data.subtitle}
             </span>
@@ -233,6 +262,29 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SSS: hem kullanıcı hem yapay zekâ arama motorları için doğrudan cevaplar */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">
+            Sık Sorulan <span className="gradient-text">Sorular</span>
+          </h2>
+          <div className="space-y-4">
+            {data.faqs.map((faq, i) => (
+              <details
+                key={i}
+                className="group rounded-2xl border border-gray-100 bg-gray-50 p-6 open:bg-white open:shadow-md transition-all"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-gray-900">
+                  <h3 className="text-lg">{faq.q}</h3>
+                  <span className="text-primary-600 text-2xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                </summary>
+                <p className="mt-4 text-gray-600 leading-relaxed">{faq.a}</p>
+              </details>
             ))}
           </div>
         </div>

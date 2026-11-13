@@ -138,6 +138,8 @@ export default function Header() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Menüyü kapat" : "Menüyü aç"}
+            aria-expanded={mobileOpen}
             className={`lg:hidden p-2 rounded-lg ${
               scrolled ? "text-gray-700" : "text-white"
             }`}

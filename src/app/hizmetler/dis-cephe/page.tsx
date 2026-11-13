@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
+import { openGraph } from "@/lib/site";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import type { ServicePageData } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Dış Cephe & Kompozit Temizliği",
+  title: "Bursa Dış Cephe & Kompozit Temizliği",
   description:
     "Bursa'da profesyonel dış cephe ve kompozit panel temizliği. 20-45m sepetli vinç, nano-teknolojik cam koruyucu ve IRATA sertifikalı ekip. 0534 846 32 69",
+  alternates: { canonical: "/hizmetler/dis-cephe" },
+  openGraph: openGraph({ url: "/hizmetler/dis-cephe" }),
 };
 
 const data: ServicePageData = {
+  slug: "dis-cephe",
   title: "Dış Cephe & Kompozit Temizliği",
   subtitle: "Zirve Hijyeni",
   description:
@@ -53,6 +57,13 @@ const data: ServicePageData = {
     "Nano-teknolojik cam koruyucu aplikatörleri",
     "IRATA standartlı ip erişim ekipmanları",
     "Kişisel koruyucu donanım (KKD) setleri",
+  ],
+  faqs: [
+    { q: "Bursa'da dış cephe temizliği nasıl yapılır?", a: "Önce bina yüksekliği, cephe malzemesi ve kirlilik seviyesi yerinde tespit edilir. Ardından binaya uygun vinç kapasitesi ve kimyasal seçilir; temizlik yukarıdan aşağıya, İSG kurallarına uygun şekilde yapılır ve son olarak cam ile kompozit yüzeylere nano koruyucu uygulanır." },
+    { q: "Kaç metre yüksekliğe kadar dış cephe temizliği yapıyorsunuz?", a: "20 ile 45 metre arası sepetli vinç parkurumuz ve 18 metreye kadar erişen karbon fiber teleskopik fırçalarımızla yüksek binalarda çalışıyoruz. Vinç erişiminin zor olduğu noktalarda IRATA standartlarında eğitimli ip erişim ekibi görev alır." },
+    { q: "Kompozit (ACP) paneldeki oksitlenme giderilebilir mi?", a: "Evet. Oksitlenmiş paneller pH nötr ACP temizleyiciler ve özel polishing ürünleriyle restore edilir, ardından UV ve kir tutmama özellikli nano koruyucu uygulanır. Aşındırıcı ürünler kullanılmaz." },
+    { q: "Dış cephe temizliği ne sıklıkla yapılmalı?", a: "Kirlilik ve bina konumuna göre değişmekle birlikte şirketler için 3, 6 ve 12 aylık periyodik bakım paketleri sunuyoruz. Ana cadde ve sanayi bölgelerindeki binalarda daha sık temizlik önerilir." },
+    { q: "Dış cephe temizliği fiyatı nasıl belirlenir?", a: "Fiyat; cephe metrekaresi, bina yüksekliği, gereken vinç kapasitesi, cephe malzemesi ve kirlilik seviyesine göre belirlenir. Bursa genelinde ücretsiz keşif yapıp net teklif veriyoruz: 0534 846 32 69." },
   ],
 };
 

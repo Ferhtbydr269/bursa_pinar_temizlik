@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
+import { openGraph } from "@/lib/site";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import type { ServicePageData } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Villa Temizliği",
+  title: "Bursa Villa Temizliği",
   description:
     "Bursa'da lüks villa temizliği. Geniş metrekarelere özel ekip, bahçe, havuz kenarı ve dış mekan dahil kapsamlı hizmet. 0534 846 32 69",
+  alternates: { canonical: "/hizmetler/villa" },
+  openGraph: openGraph({ url: "/hizmetler/villa" }),
 };
 
 const data: ServicePageData = {
+  slug: "villa",
   title: "Villa Temizliği",
   subtitle: "Lüks Yaşamın Temizlik Partneri",
   description:
@@ -53,6 +57,12 @@ const data: ServicePageData = {
     "Teleskopik cam temizleme ekipmanları",
     "Zemin cilalama ve bakım makineleri",
     "Ozon jeneratörü (koku giderme)",
+  ],
+  faqs: [
+    { q: "Villa temizliğinde kaç kişilik ekip çalışıyor?", a: "300 m²'den büyük villalarda 4-6 kişilik özel ekip görevlendiriyoruz; iç ve dış mekan ayrı ekiplerle eş zamanlı temizlenir." },
+    { q: "Havuz kenarı ve bahçe temizliği dahil mi?", a: "Evet. Havuz çevresi, teras ve veranda basınçlı yıkama ile; garaj, bahçe duvarları ve giriş alanları da dış mekan temizliği kapsamında temizlenir." },
+    { q: "Mermer ve parke zeminlerde hangi ürünler kullanılıyor?", a: "Mermer, granit ve parke zeminlerde yüzeye zarar vermeyen pH nötr bakım ürünleri kullanılır." },
+    { q: "Villa için periyodik temizlik paketi var mı?", a: "Evet. Haftalık ve aylık VIP bakım paketleri sunuyoruz; randevulu, kişiye özel temizlik planı hazırlanır." },
   ],
 };
 

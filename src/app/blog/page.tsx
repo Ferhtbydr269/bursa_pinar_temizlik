@@ -5,92 +5,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Search, BookOpen, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { blogPosts, BLOG_CATEGORIES } from "@/lib/blog";
 
-const categories = ["Tümü", "Leke Çıkarma", "Dış Cephe", "Ev Temizliği", "Endüstriyel", "İpuçları"];
-
-const blogPosts = [
-  {
-    slug: "kahve-lekesi-nasil-cikar",
-    title: "Kahve Lekesi Nasıl Çıkar? 5 Etkili Yöntem",
-    excerpt: "Halıdan, koltuktan ve kumaştan kahve lekesi çıkarmanın profesyonel yöntemleri. Ev yapımı ve endüstriyel çözümler.",
-    category: "Leke Çıkarma",
-    image: "/images/ofis-ev/detay-3.jpg",
-    date: "15 Mart 2025",
-    readTime: "4 dk",
-  },
-  {
-    slug: "kompozit-panel-oksitlenme",
-    title: "Kompozit Paneldeki Oksitlenme Nasıl Giderilir?",
-    excerpt: "ACP panellerin oksitlenme nedenleri, profesyonel temizlik yöntemleri ve koruyucu önlemler.",
-    category: "Dış Cephe",
-    image: "/images/dis-cephe/bina-temizlik.jpg",
-    date: "8 Mart 2025",
-    readTime: "6 dk",
-  },
-  {
-    slug: "insaat-sonrasi-temizlik-rehberi",
-    title: "İnşaat Sonrası Temizlik: A'dan Z'ye Rehber",
-    excerpt: "Yeni binaların temizlik süreci, kullanılması gereken kimyasallar ve profesyonel ipuçları.",
-    category: "İpuçları",
-    image: "/images/insaat-sonrasi/detay-6.jpg",
-    date: "1 Mart 2025",
-    readTime: "8 dk",
-  },
-  {
-    slug: "fabrika-zemin-temizligi",
-    title: "Epoksi Zemin Temizliği: pH Nötr Ürünlerin Önemi",
-    excerpt: "Epoksi kaplı fabrika zeminlerinin doğru temizlenmesi, yanlış ürünlerin verdiği zararlar.",
-    category: "Endüstriyel",
-    image: "/images/fabrika/fabrika-ic.jpg",
-    date: "22 Şubat 2025",
-    readTime: "5 dk",
-  },
-  {
-    slug: "halidan-leke-cikarma",
-    title: "Halıdan Zor Lekeler Nasıl Çıkar?",
-    excerpt: "Kan, mürekkep, boya ve yağ lekeleri için halı temizleme teknikleri. Profesyonel vakum ve buhar yöntemleri.",
-    category: "Leke Çıkarma",
-    image: "/images/cami/cami-ic.jpg",
-    date: "14 Şubat 2025",
-    readTime: "5 dk",
-  },
-  {
-    slug: "ev-temizlik-plani",
-    title: "Haftalık Ev Temizlik Planı Nasıl Yapılır?",
-    excerpt: "Oda oda sistematik temizlik planı. Profesyonellerin evde uyguladığı yöntemler.",
-    category: "Ev Temizliği",
-    image: "/images/ofis-ev/villa-temiz.jpg",
-    date: "7 Şubat 2025",
-    readTime: "4 dk",
-  },
-  {
-    slug: "cam-temizligi-puf-noktalari",
-    title: "Cam Temizliğinde Profesyonel Püf Noktaları",
-    excerpt: "İz bırakmayan cam temizliğinin sırları. Saf su teknolojisi ve nano koruyucuların avantajları.",
-    category: "Dış Cephe",
-    image: "/images/dis-cephe/cam-cephe.jpg",
-    date: "1 Şubat 2025",
-    readTime: "3 dk",
-  },
-  {
-    slug: "banyo-kirec-temizligi",
-    title: "Banyo Kireç Lekesi Nasıl Çıkar?",
-    excerpt: "Duşakabin, musluk ve fayans üzerindeki kireç lekelerinin etkili temizleme yöntemleri.",
-    category: "Ev Temizliği",
-    image: "/images/ofis-ev/detay-5.jpg",
-    date: "25 Ocak 2025",
-    readTime: "4 dk",
-  },
-  {
-    slug: "endustriyel-temizlik-makineleri",
-    title: "Endüstriyel Temizlik Makineleri: Hangisi Ne İşe Yarar?",
-    excerpt: "Scrubber, sweeper, yüksek basınçlı yıkama ve buhar jeneratörlerinin kullanım alanları.",
-    category: "Endüstriyel",
-    image: "/images/fabrika/detay-1.jpg",
-    date: "18 Ocak 2025",
-    readTime: "7 dk",
-  },
-];
+const categories = BLOG_CATEGORIES;
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("Tümü");
@@ -108,7 +25,7 @@ export default function BlogPage() {
     <>
       <section className="pt-32 pb-8 hero-gradient">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div initial={false}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-primary-200 text-sm font-medium mb-6">
               <BookOpen className="w-4 h-4" />
               Leke Kütüphanesi & Blog
