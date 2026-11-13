@@ -8,6 +8,10 @@ export const PHONE_DISPLAY = "0534 846 32 69";
 export const PHONE_E164 = "+905348463269";
 export const EMAIL = "info@bursapinartemizlik.com";
 export const FOUNDING_YEAR = "2015";
+export const INSTAGRAM_URL = "https://www.instagram.com/bursa_pinartemizlik/";
+// Resmi sosyal profiller: schema.org sameAs ile site ve hesaplar aynı işletme
+// olarak eşleştirilir. Yeni bir resmi hesap açılınca buraya ekleyin.
+export const SOCIAL_PROFILES = [INSTAGRAM_URL];
 export const OG_IMAGE = {
   url: "/images/dis-cephe/hero-vinc.jpg",
   width: 4618,
@@ -55,6 +59,7 @@ export function localBusinessSchema() {
     telephone: PHONE_E164,
     email: EMAIL,
     foundingDate: FOUNDING_YEAR,
+    sameAs: SOCIAL_PROFILES,
     priceRange: "₺₺",
     address: {
       "@type": "PostalAddress",

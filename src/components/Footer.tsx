@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock, Globe, ExternalLink } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { trackConversion } from "@/lib/gtag";
+import { INSTAGRAM_URL } from "@/lib/site";
 
 const services = [
   { name: "Dış Cephe Temizliği", href: "/hizmetler/dis-cephe" },
@@ -42,22 +43,17 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://instagram.com"
-                aria-label="Bursa Pınar Temizlik Instagram sayfası"
+                href={INSTAGRAM_URL}
+                aria-label="Bursa Pınar Temizlik Instagram hesabı"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
                 className="w-10 h-10 rounded-full bg-primary-800 flex items-center justify-center hover:bg-primary-600 transition-colors"
               >
-                <Globe className="w-5 h-5" />
-              </a>
-              <a
-                href="https://facebook.com"
-                aria-label="Bursa Pınar Temizlik Facebook sayfası"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-800 flex items-center justify-center hover:bg-primary-600 transition-colors"
-              >
-                <ExternalLink className="w-5 h-5" />
+                <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
+                </svg>
               </a>
             </div>
           </div>
