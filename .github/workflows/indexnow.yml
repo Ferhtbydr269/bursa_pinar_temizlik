@@ -1,0 +1,46 @@
+name: IndexNow
+
+# Vercel her production deploy'unu GitHub'a "deployment_status" olarak bildiriyor.
+# Bildirim yalnızca deploy başarılı olup site gerçekten güncellendiğinde gider;
+# böylece Bing sayfanın eski hâlini taramaz.
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Sitemap'teki tüm URL'leri bildir"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha || github.sha }}
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Değişen sayfaları IndexNow'a bildir
+        if: github.event_name == 'deployment_status'
+        run: node scripts/indexnow.mjs --sha "${{ github.event.deployment.sha }}"
+
+      - name: Tüm sayfaları IndexNow'a bildir (elle tetikleme)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          if [ "${{ inputs.all }}" = "true" ]; then
+            node scripts/indexnow.mjs --all
+          else
+            node scripts/indexnow.mjs --sha "${{ github.sha }}"
+          fi
