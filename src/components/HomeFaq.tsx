@@ -1,6 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
-import { faqSchema, SERVICE_AREAS, SERVICES, PHONE_DISPLAY } from "@/lib/site";
+import { faqSchema, SERVICE_AREAS, SERVICES, PHONE_DISPLAY, ADDRESS, HOURS_TEXT } from "@/lib/site";
 
 // Sunucu bileşeni: metin ham HTML'de hazır gelir. JS çalıştırmayan yapay zekâ
 // botları (GPTBot, PerplexityBot, ClaudeBot) ve Google bu içeriği doğrudan okur.
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Nasıl teklif alabilirim?",
-    a: `${PHONE_DISPLAY} numarasından bizi arayabilir, WhatsApp'tan fotoğraf göndererek yazabilir veya iletişim formunu doldurabilirsiniz. Pazartesi-Cumartesi 08:00-19:00 arası hizmetinizdeyiz.`,
+    a: `${PHONE_DISPLAY} numarasından bizi arayabilir, WhatsApp'tan fotoğraf göndererek yazabilir veya iletişim formunu doldurabilirsiniz. Ofisimiz ${ADDRESS.display} adresindedir; ${HOURS_TEXT} arası hizmetinizdeyiz.`,
   },
 ];
 

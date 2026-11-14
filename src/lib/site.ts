@@ -8,6 +8,19 @@ export const PHONE_DISPLAY = "0534 846 32 69";
 export const PHONE_E164 = "+905348463269";
 export const EMAIL = "info@bursapinartemizlik.com";
 export const FOUNDING_YEAR = "2015";
+// Google İşletme Profili ile birebir aynı olmalı (NAP tutarlılığı yerel sıralamayı etkiler).
+export const ADDRESS = {
+  street: "Yeni Karaman Mah., Sanayi Cad. No:150/A, Umi Plaza",
+  district: "Osmangazi",
+  city: "Bursa",
+  postalCode: "16170",
+  display: "Umi Plaza, Yeni Karaman Mah., Sanayi Cad. No:150/A, 16170 Osmangazi / Bursa",
+};
+export const HOURS_DISPLAY = "Her gün 09:00 - 20:00";
+export const HOURS_TEXT = "haftanın her günü 09:00-20:00";
+const MAPS_QUERY = encodeURIComponent("Bursa Pınar Temizlik, Umi Plaza, Sanayi Cad. No:150/A, Osmangazi, Bursa");
+export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`;
+export const MAPS_EMBED_URL = `https://www.google.com/maps?q=${MAPS_QUERY}&output=embed`;
 export const INSTAGRAM_URL = "https://www.instagram.com/bursa_pinartemizlik/";
 // Resmi sosyal profiller: schema.org sameAs ile site ve hesaplar aynı işletme
 // olarak eşleştirilir. Yeni bir resmi hesap açılınca buraya ekleyin.
@@ -63,10 +76,13 @@ export function localBusinessSchema() {
     priceRange: "₺₺",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Bursa",
-      addressRegion: "Bursa",
+      streetAddress: ADDRESS.street,
+      addressLocality: ADDRESS.district,
+      addressRegion: ADDRESS.city,
+      postalCode: ADDRESS.postalCode,
       addressCountry: "TR",
     },
+    hasMap: MAPS_URL,
     areaServed: [
       { "@type": "City", name: "Bursa" },
       ...SERVICE_AREAS.map((name) => ({
@@ -77,9 +93,9 @@ export function localBusinessSchema() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "08:00",
-        closes: "19:00",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "09:00",
+        closes: "20:00",
       },
     ],
     contactPoint: {

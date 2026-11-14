@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useForm, ValidationError } from "@formspree/react";
 import { trackConversion } from "@/lib/gtag";
+import { ADDRESS, HOURS_DISPLAY, MAPS_URL, MAPS_EMBED_URL } from "@/lib/site";
 import {
   Phone,
   Mail,
@@ -39,14 +40,14 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Adres",
-    value: "Bursa, Türkiye",
-    href: "#",
+    value: ADDRESS.display,
+    href: MAPS_URL,
     color: "bg-red-100 text-red-600",
   },
   {
     icon: Clock,
     title: "Çalışma Saatleri",
-    value: "Pzt - Cmt: 08:00 - 19:00",
+    value: HOURS_DISPLAY,
     href: "#",
     color: "bg-amber-100 text-amber-600",
   },
@@ -114,14 +115,14 @@ export default function IletisimPage() {
                 className="mt-8 rounded-2xl overflow-hidden h-64"
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194469.60924290!2d28.83!3d40.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca10fc80d0214d%3A0xdbb02c8c8b8bbb6!2sBursa!5e0!3m2!1str!2str!4v1"
+                  src={MAPS_EMBED_URL}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Bursa Harita"
+                  title="Bursa Pınar Temizlik konumu - Umi Plaza, Osmangazi"
                 />
               </motion.div>
             </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { trackConversion } from "@/lib/gtag";
-import { INSTAGRAM_URL } from "@/lib/site";
+import { INSTAGRAM_URL, ADDRESS, HOURS_DISPLAY, MAPS_URL } from "@/lib/site";
 
 const services = [
   { name: "Dış Cephe Temizliği", href: "/hizmetler/dis-cephe" },
@@ -109,14 +109,14 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary-400 shrink-0 mt-0.5" />
-                <span className="text-sm text-primary-200/80">
-                  Bursa, Türkiye
-                </span>
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-200/80 hover:text-white transition-colors">
+                  {ADDRESS.display}
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-primary-400 shrink-0 mt-0.5" />
                 <span className="text-sm text-primary-200/80">
-                  Pzt - Cmt: 08:00 - 19:00
+                  {HOURS_DISPLAY}
                 </span>
               </li>
             </ul>

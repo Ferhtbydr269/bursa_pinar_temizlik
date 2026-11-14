@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { trackConversion } from "@/lib/gtag";
+import { ADDRESS, HOURS_DISPLAY } from "@/lib/site";
 import {
   Phone,
   MessageSquare,
@@ -187,11 +188,11 @@ export default function FiyatHesaplaPage() {
                 <div className="space-y-3 mb-6 text-sm text-gray-600">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-primary-600 shrink-0" />
-                    Bursa, Türkiye
+                    {ADDRESS.display}
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-primary-600 shrink-0" />
-                    Pzt - Cmt: 08:00 - 19:00
+                    {HOURS_DISPLAY}
                   </div>
                 </div>
 
